@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}All Cases{% endblock %}
+
+{% block head_scripts %}
+<style>
+  /* Scan form validation. */
+</style>
+<script>
+  function validateScanForm(e) {
+    const nameField = document.getElementById("new_case_name");
+    const dirField = document.getElementById("new_target_path");
+    // Check for name
+    if (!nameField.value.trim()) {
+      alert("Please enter a case name.");
+      e.preventDefault();
+      return false;
+    }
+    // Check if user selected at least one file
+    if (!dirField.files || dirField.files.length === 0) {
+      alert("Please select a directory to scan.");
+      e.preventDefault();
+      return false;
+    }
+    return true;
+  }
+</script>
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-3">Cases</h1>
+
+<!-- Create Case Form (empty case) -->
+<div class="mb-4">
+  <form action="{{ url_for('handle_create_case') }}" method="POST" class="row g-3">
+    <div class="col-auto">
+      <label for="case_name" class="visually-hidden">Case Name</label>
+      <input type="text" class="form-control" name="case_name" id="case_name" placeholder="New case name">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Create Case</button>
+    </div>
+  </form>
+</div>
+
+<!-- "Scan New Directory" form (webkitdirectory) -->
+<div class="mb-4">
+  <h5>Scan a New Directory into a new (or existing) case:</h5>
+  <form action="{{ url_for('scan_new_directory') }}" method="POST"
+        class="row g-3"
+        enctype="multipart/form-data"
+        onsubmit="return validateScanForm(event)">
+    <div class="col-auto">
+      <label for="new_case_name" class="visually-hidden">Case Name</label>
+      <input type="text" class="form-control" name="new_case_name" id="new_case_name" placeholder="Case name">
+    </div>
+    <div class="col-auto">
+      <!-- webkitdirectory for directory selection in Chrome-based browsers -->
+      <label class="form-label" for="new_target_path">Select Directory</label>
+      <input type="file"
+             name="new_target_path"
+             id="new_target_path"
+             class="form-control-file"
+             webkitdirectory
+             directory
+             multiple>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Scan New Directory</button>
+    </div>
+  </form>
+</div>
+
+<!-- Table of Cases with timestamp & Re-scan button -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Case Name</th>
+      <th>Total</th>
+      <th>Low</th>
+      <th>Medium</th>
+      <th>High</th>
+      <th>Last Scan</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for case in cases %}
+      <tr>
+        <td>{{ case.scan_name }}</td>
+        <td>{{ case.total }}</td>
+        <td>{{ case.info }}</td>
+        <td>{{ case.warning }}</td>
+        <td>{{ case.error }}</td>
+        <td>{{ case.last_scan }}</td>
+        <td>
+          <!-- View button -->
+          <a href="{{ url_for('load_case', case_name=case.scan_name) }}" class="btn btn-sm btn-info">
+            View
+          </a>
+          <!-- Re-scan (no target="." now) -->
+          <form action="{{ url_for('rescan_case') }}" method="POST" style="display:inline;">
+            <input type="hidden" name="case_name" value="{{ case.scan_name }}">
+            <button type="submit" class="btn btn-sm btn-secondary">Re-scan</button>
+          </form>
+          <!-- Delete case -->
+          <form action="{{ url_for('handle_delete_case') }}" method="POST" style="display:inline;">
+            <input type="hidden" name="case_name" value="{{ case.scan_name }}">
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- DB Management Buttons -->
+<div class="mt-3">
+  <form action="{{ url_for('do_clear_db') }}" method="POST" style="display:inline-block;">
+    <button type="submit" class="btn btn-warning">Clear DB</button>
+  </form>
+  <form action="{{ url_for('do_export_db') }}" method="GET" style="display:inline-block;">
+    <button type="submit" class="btn btn-success">Export DB</button>
+  </form>
+  <form action="{{ url_for('do_import_db') }}" method="POST" enctype="multipart/form-data" style="display:inline-block;">
+    <div class="d-inline-block">
+      <input type="file" name="dbfile" accept=".db" class="form-control-file">
+    </div>
+    <button type="submit" class="btn btn-primary">Import DB</button>
+  </form>
+</div>
+{% endblock %}

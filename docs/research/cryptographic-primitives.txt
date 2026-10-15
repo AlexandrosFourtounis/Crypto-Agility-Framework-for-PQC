@@ -1,0 +1,41 @@
+Identify vulnerable cryptographic primitives (not just quantum-
+vulnerable)
+
+One-way hash function:
+
+    1)MD5: Collision attacks make it insecure.
+    2)SHA-1: Broken by collision attacks; deprecated by NIST.
+    3)SHA-2 family (e.g., SHA-256): Reduced security margin under Grover's algorithm, though still usable with longer outputs.
+
+
+Symmetric key cryptography:
+
+    1)DES (Data Encryption Standard): Key size (56 bits) is too short and easily brute-forced.
+    2)3DES (Triple DES): Weak against meet-in-the-middle attacks; deprecated by NIST.
+    3)ECB (Electronic Codebook): Leaks patterns in data due to lack of diffusion.
+    4)CBC (Cipher Block Chaining) without proper padding or integrity checks.
+    5)AES (Advanced Encryption Standard) with short keys (e.g., AES-128): Vulnerable to Grover's algorithm, requiring longer keys (e.g., AES-256).
+
+
+Asymmetric key cryptography:
+
+    1)RSA: Based on integer factorization, broken by Shor's algorithm.
+    2)DSA (Digital Signature Algorithm): Vulnerable to quantum attacks and parameter reuse risks. (RSA with keys < 2048 bits.)
+    3)ECC (Elliptic Curve Cryptography): Relies on discrete logarithms, susceptible to quantum attacks. (ECC curves not approved by modern standards (e.g., NIST or SECG).)
+    4)Diffie-Hellman (DH): Discrete logarithm vulnerability under quantum attacks.
+    5)Static DH without ephemeral keys: Lacks forward secrecy.
+    6)Small group sizes or weak parameters (e.g., 1024-bit DH groups).
+
+
+Digital signatures:
+
+    1)RSA Signatures: Vulnerable to padding oracle attacks, where an attacker can exploit predictable structure or padding errors to forge signatures.
+    2)MD5-based Signature Schemes are Vulnerable to collision attacks where two different messages can produce the same hash. If MD5 is used as the hash function in a signature scheme, forged signatures are possible.
+    3)SHA-1-based Signature Schemes are Vulnerable to collision attacks. Systems relying on SHA-1 for hashing in digital signatures are at risk.
+
+
+Cryptographically secure pseudorandom number generator:
+
+    1)SHA-2 family (e.g., SHA-256): Reduced security margin under Grover's algorithm, though still usable with longer outputs.
+    2)Non-cryptographically secure RNGs for key generation (e.g., rand()).
+

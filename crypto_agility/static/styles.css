@@ -1,0 +1,171 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(
+                    rgba(0, 0, 0, 0.85),
+                    rgba(0, 0, 0, 0.85)
+                  ),
+                  url("img/bg.jpg")
+                  no-repeat center center fixed !important;
+    background-size: cover !important;
+    color: #ECECEC;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    padding: 20px;
+    margin: 0 0 20px 0;
+    border-radius: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Optional blur effect */
+}
+
+h2 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color:  transparent !important;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+th {
+    background: #6a11cb !important;
+    color: white;
+    border: none;
+}
+
+td {
+    font-size: 14px;
+    text-align: center;
+    border: none;
+}
+
+.file-button, .folder-button {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 16px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.file-button:hover, .folder-button:hover {
+    background: #6a11cb;
+    transform: scale(1.05);
+}
+
+/* Rounded Corner Class */
+.rounded {
+    border-radius: 15px;
+}
+
+/* Badge Styles */
+.severity-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Severity Colors */
+.severity-low {
+    background-color: #f0ad4e; /* Yellow-orange */
+}
+
+.severity-medium {
+    background-color: #f39c12; /* Orange */
+}
+
+.severity-high {
+    background-color: #d9534f; /* Red */
+}
+
+/* Nav bar / actions container */
+.nav-bar {
+    margin-bottom: 15px;
+}
+
+/* Flash messages */
+.flash-container {
+    margin: 10px 0;
+}
+.flash {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.navbar-dark.bg-dark {
+      background-color: rgba(29, 29, 29, 0.9) !important;
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid #333;
+    }
+    .table {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card {
+      background-color: rgba(0, 0, 0, 0.75) !important;
+      border: 1px solid #444;
+      color: #ECECEC;
+      border-radius: 10px;
+    }
+    .card-header {
+      background-color: rgba(0, 0, 0, 0.85);
+      border-bottom: 1px solid #555;
+    }
+    .btn-info {
+      background-color: #3956b4 !important;
+      border-color: #3956b4 !important;
+      color: #fff !important;
+    }
+    .btn-secondary {
+      background-color: #555 !important;
+      border-color: #666 !important;
+    }
+    .alert-info {
+      background-color: rgba(75, 75, 75, 0.9) !important;
+
+      border-color: #444;
+      color: #fff !important;
+    }
+
+.table { --bs-table-bg: transparent; --bs-table-color: #ececec; --bs-table-striped-color: #ececec; }

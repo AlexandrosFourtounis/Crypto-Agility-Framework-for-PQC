@@ -1,0 +1,202 @@
+{
+  "detect-md5": {
+    "algorithm": "MD5",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-sha1": {
+    "algorithm": "SHA1",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-des": {
+    "algorithm": "DES",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-3des": {
+    "algorithm": "3DES",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-ecb": {
+    "algorithm": "ECB",
+    "status": "vulnerable",
+    "replacement": "GCM"
+  },
+  "detect-cbc-without-integrity": {
+    "algorithm": "CBC",
+    "status": "vulnerable",
+    "replacement": "GCM"
+  },
+  "detect-short-aes": {
+    "algorithm": "AES-128",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-static-iv": {
+    "algorithm": "StaticIV",
+    "status": "vulnerable",
+    "replacement": null
+  },
+  "detect-small-rsa": {
+    "algorithm": "RSA-1024",
+    "status": "vulnerable",
+    "replacement": "RSA-2048"
+  },
+  "detect-small-rsa-key-size": {
+    "algorithm": "RSA-1024",
+    "status": "vulnerable",
+    "replacement": "RSA-2048"
+  },
+  "detect-dsa": {
+    "algorithm": "DSA",
+    "status": "vulnerable",
+    "replacement": "ECDSA"
+  },
+  "detect-static-dh": {
+    "algorithm": "StaticDH",
+    "status": "vulnerable",
+    "replacement": "EphemeralDH"
+  },
+  "detect-md5-signature": {
+    "algorithm": "MD5",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-sha1-signature": {
+    "algorithm": "SHA1",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-insecure-rng": {
+    "algorithm": "InsecureRNG",
+    "status": "vulnerable",
+    "replacement": "secrets"
+  },
+  "detect-sha2": {
+    "algorithm": "SHA-256",
+    "status": "secure",
+    "replacement": null
+  },
+  "detect-rc4": {
+    "algorithm": "RC4",
+    "status": "vulnerable",
+    "replacement": "AES-GCM"
+  },
+  "detect-blowfish": {
+    "algorithm": "Blowfish",
+    "status": "vulnerable",
+    "replacement": "AES-GCM"
+  },
+  "detect-idea": {
+    "algorithm": "IDEA",
+    "status": "vulnerable",
+    "replacement": "AES-GCM"
+  },
+  "detect-hardcoded-keys": {
+    "algorithm": "HardcodedKey",
+    "status": "vulnerable",
+    "replacement": null
+  },
+  "detect-hardcoded-secrets": {
+    "algorithm": "HardcodedSecret",
+    "status": "vulnerable",
+    "replacement": null
+  },
+  "detect-rsa-no-oaep": {
+    "algorithm": "RSA-NoOAEP",
+    "status": "vulnerable",
+    "replacement": "RSA-OAEP"
+  },
+  "detect-weak-ecc": {
+    "algorithm": "WeakECC",
+    "status": "vulnerable",
+    "replacement": "secp256r1"
+  },
+  "insecure-cipher-algorithm-rc4": {
+    "algorithm": "RC4",
+    "status": "vulnerable",
+    "replacement": "AES-GCM"
+  },
+  "insecure-cipher-algorithm-blowfish": {
+    "algorithm": "Blowfish",
+    "status": "vulnerable",
+    "replacement": "AES-GCM"
+  },
+  "insecure-cipher-algorithm-idea": {
+    "algorithm": "IDEA",
+    "status": "vulnerable",
+    "replacement": "AES-GCM"
+  },
+  "detect-md5-java": {
+    "algorithm": "MD5",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-sha1-java": {
+    "algorithm": "SHA1",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-des-java": {
+    "algorithm": "DES",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-static-key-java": {
+    "algorithm": "HardcodedKey",
+    "status": "vulnerable",
+    "replacement": null
+  },
+  "detect-weak-rsa-java": {
+    "algorithm": "RSA-1024",
+    "status": "vulnerable",
+    "replacement": "RSA-2048"
+  },
+  "detect-rsa-no-padding-java": {
+    "algorithm": "RSA-NoPadding",
+    "status": "vulnerable",
+    "replacement": "OAEP"
+  },
+  "detect-md5-c": {
+    "algorithm": "MD5",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-sha1-c": {
+    "algorithm": "SHA1",
+    "status": "vulnerable",
+    "replacement": "SHA-256"
+  },
+  "detect-des-c": {
+    "algorithm": "DES",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-static-key-c": {
+    "algorithm": "HardcodedKey",
+    "status": "vulnerable",
+    "replacement": null
+  },
+  "detect-weak-rsa-c": {
+    "algorithm": "RSA-1024",
+    "status": "vulnerable",
+    "replacement": "RSA-2048"
+  },
+  "detect-weak-aes-c": {
+    "algorithm": "AES-128",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-3des-java": {
+    "algorithm": "3DES",
+    "status": "vulnerable",
+    "replacement": "AES-256"
+  },
+  "detect-hardcoded-keys-c": {
+    "algorithm": "HardcodedKey",
+    "status": "vulnerable",
+    "replacement": null
+  }
+}

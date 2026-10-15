@@ -1,0 +1,5 @@
+Familiarize with existing open-source crypto inventory tools
+
+repo of semgrep (https://github.com/semgrep/semgrep)
+
+https://github.com/PyCQA/bandit/blob/d5f8fa0d89d7b11442fc6ec80ca42953974354c8/bandit/blacklists/calls.py

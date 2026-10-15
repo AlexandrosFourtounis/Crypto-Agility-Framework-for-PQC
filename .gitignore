@@ -1,0 +1,30 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*-env/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local cases, scan output, and databases
+instance/
+*.db
+*.db-*
+*.sqlite*
+*.log
+semgrep_results.yaml
+semgrep_raw_output.json
+scan_output.txt
+crypto_agility_report.json
+
+# Local settings
+.env
+.env.*
+.idea/
+.vscode/
+.DS_Store
